@@ -1,12 +1,13 @@
 * {
     box-sizing: border-box;
-    margin: 10;
 }
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     min-height: 100%;
-    background-color: #2C3E50;
+    background-image: url("../img/bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 html {
@@ -16,57 +17,86 @@ html {
 .grid-container>* {
     box-shadow: -1px 1px 5px 0px rgb(0, 0, 0);
     border-radius: 5px;
-    padding: 10px;
     text-align: center;
 }
 
 .header {
     grid-area: header;
     text-align: center;
-    background-color: #F23535;
-    color: white;
+    background-color: #EAFF01;
+    color: #001019;
+}
+
+.nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2E1C66;
+    width: 400px;
+    height: 40px;
+    border-radius: 20px;
+    margin: 0 auto;
 }
 
 .nav ul {
-    background-color: #9400E6;
-    text-align: start;
-    color: rgb(255, 255, 255);
-    margin-left: 450px;
-    margin-right: 450px;
-    border-radius: 20px;
-    word-spacing: 15px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav li {
+    margin: 0 10px;
 }
 
 .links {
-    color: white;
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
 }
 
-.aside {
-    grid-area: aside;
-    background-color: #EAF205;
+.links:hover {
+    background-color: #001019;
+}
+
+.section {
+    background-color: #fbfaf5dc;
+    border-radius: 30px;
+    width: 600px;
+    height: 200px;
+    margin: 100px auto;
+    color: #001019;
 }
 
 .footer {
-    grid-area: footer;
-    background-color: #9400E6;
-    color: white;
+    background-color: #fbfaf5dc;
+    border-radius: 50px;
+    width: 200px;
+    height: 95px;
+    margin: 0 auto;
+    color: #001019;
 }
 
-/*Para Computadoras*/
-@media(min-width: 900px) {
-    .grid-container {
-        display: grid;
-        gap: 20px;
+.footer p {
+    margin-bottom: 10px;
+}
 
-        /*Definiendo el alto de las filas:*/
-        /*Si queremos una columna vacia ponesmos un punto "."*/
-        grid-template:
-            "header header" 130px
-            /*alto*/
-            "aside  section" auto
-            "footer footer" 100px /
-            200px auto;
-        /*ancho:*/
-        /*Definiendo el ancho de las columnas ( / 200px auto):*/
-    }
+.LinksRedes {
+    width: 30px;
+    height: 30px;
+}
+
+.grid-container {
+    display: grid;
+    gap: 10px;
+    grid-template-areas:
+        "header"
+        "section"
+        "footer";
+    grid-template-columns: auto;
+    grid-template-rows: 140px auto 100px;
 }

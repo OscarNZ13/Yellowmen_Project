@@ -1,31 +1,21 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" <head>
-<title>TODO supply a title</title>
+<title>YellowMen</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="../css/Styles.css" rel="stylesheet">
 
 <body class="grid-container">
-
     <header class="header">
         <h1 th:text="${titulo}"></h1>
         <nav class="nav">
             <ul>
-                <a class="links" href="">Inicio</a>
-                <a class="links" href="">Destacado</a>
-                <a class="links" href="">Prendas</a>
+                <li><a class="links" href="inicio.html" style="background-color: black;"><Strong>Inicio</Strong></a></li>
+                <li><a class="links" href="destacado.html">Destacado</a></li>
+                <li><a class="links" href="prendas.html">Prendas</a></li>
             </ul>
         </nav>
     </header>
-
-    <Aside class="aside">
-        Aside
-        <p>orem ipsum dolor sit amet consectetur adipiscing elit, dictum ullamcorper montes tristique himenaeos
-            sollicitudin, consequat egestas ornare felis cras torquent. Varius metus condimentum lacinia per vestibulum
-            congue massa mauris, dictum nascetur nisi tortor auctor suscipit mattis, nec a fermentum et ultricies lacus
-            nostra. Sapien eu neque conubia id viverra iaculis per, augue purus ultricies habitasse nulla congue
-            hendrerit consequat, laoreet malesuada a massa velit dictumst.</p>
-    </Aside>
 
     <section class="section">
         Section
@@ -34,9 +24,13 @@
     </section>
 
     <footer class="footer">
-        Footer
-        <p>orem ipsum dolor sit amet consectetur adipiscing elit, dictum ullamcorper montes tristique himenaeos
-            sollicitudin, consequat egestas ornare felis cras torquent.</p>
+        <p>Nuestras redes</p>
+        <a href="https://wa.me/+50664883639" target="_blank" >
+            <img src="../img/whatsapp.png" alt="WhatsApp" class="LinksRedes">
+        </a>
+        <a href="https://www.instagram.com/yellowmen_storecr" target="_blank" >
+            <img src="../img/instagram.png" alt="Instagram" class="LinksRedes">
+        </a>
     </footer>
 </body>
 
