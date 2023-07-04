@@ -54,7 +54,7 @@ html {
 .links {
     color: #FFFFFF;
     text-decoration: none;
-    padding: 10px 20px;
+    padding: 5px 20px;
     border-radius: 20px;
     transition: background-color 0.3s ease;
 }
@@ -66,17 +66,23 @@ html {
 .section {
     background-color: #fbfaf5dc;
     border-radius: 30px;
-    width: 600px;
-    height: 200px;
-    margin: 100px auto;
+    height: 250px;
+    width: 500px;
+    margin: 85px auto;
     color: #001019;
+}
+
+.ParrafoIntroductorio{
+    font-size: small;
+    padding-left: 10%;
+    padding-right: 10%;
 }
 
 .footer {
     background-color: #fbfaf5dc;
-    border-radius: 50px;
+    border-radius: 30px;
     width: 200px;
-    height: 95px;
+    height: 90px;
     margin: 0 auto;
     color: #001019;
 }
@@ -86,6 +92,7 @@ html {
 }
 
 .LinksRedes {
+    margin-top: -20px;
     width: 30px;
     height: 30px;
 }
