@@ -78,6 +78,13 @@ html {
     padding-right: 10%;
 }
 
+.pendiente{
+    font-size: 30px;
+    padding-left: 10%;
+    padding-right: 10%;
+    color: white;
+}
+
 .footer {
     background-color: #fbfaf5dc;
     border-radius: 30px;
