@@ -1,43 +1,27 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" <head>
-    <title>YellowMen</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../css/Styles.css" rel="stylesheet">
+<title>Yellow Men</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="../css/Styles.css" rel="stylesheet">
 
-    <body class="grid-container">
-        <header class="header">
-            <h1 th:text="${titulo}"></h1>
-            <nav class="nav">
-                <ul>
-                    <li><a class="links" href="index.html"><Strong>Inicio</Strong></a></li>
-                    <li><a class="links" href="destacado.html"><Strong>Destacado</Strong></a></li>
-                    <li><a class="links" href="prendas.html"><Strong>Prendas</Strong></a></li>
-                </ul>
-            </nav>
-        </header>
+<body class="grid-container">
+    
+    <div class="header" th:include="Header_Template.html :: header"></div>
 
-        <section class="section">
-            <h3>¿Qué es Yellow Men Store?</h3>
-            <p class="ParrafoIntroductorio">Somos una tienda virtual que trabaja bajo encargo, buscamos satisfacer las
-                necesidades de los hombres
-                costarricenses de encontrar artículos de moda variados y algunos accesorios para hombres que no son fáciles
-                de encontrar en nuestro país, a la vez de brindar el mejor servicio al cliente posible y atender todas tus
-                dudas sobre cómo trabajamos o si tienes dudas sobre algún artículo en específico.
-                Trabajamos con múltiples tiendas extranjeras por lo que si tienes alguna idea de alguna prenda o accesorio
-                que deseas nos puedes escribir y trataremos de encontrarlo.
-            </p>
-        </section>
+    <section class="section">
+        <h3>¿Qué es Yellow Men Store?</h3>
+        <p class="ParrafoIntroductorio">Somos una tienda virtual que trabaja bajo encargo, buscamos satisfacer las
+            necesidades de los hombres
+            costarricenses de encontrar artículos de moda variados y algunos accesorios para hombres que no son fáciles
+            de encontrar en nuestro país, a la vez de brindar el mejor servicio al cliente posible y atender todas tus
+            dudas sobre cómo trabajamos o si tienes dudas sobre algún artículo en específico.
+            Trabajamos con múltiples tiendas extranjeras por lo que si tienes alguna idea de alguna prenda o accesorio
+            que deseas nos puedes escribir y trataremos de encontrarlo.
+        </p>
+    </section>
 
-        <footer class="footer">
-            <h5>Nuestras Redes</h5>
-            <a href="https://wa.me/+50664883639" target="_blank">
-                <img src="../img/whatsapp.png" alt="WhatsApp" class="LinksRedes">
-            </a>
-            <a href="https://www.instagram.com/yellowmen_storecr" target="_blank">
-                <img src="../img/instagram.png" alt="Instagram" class="LinksRedes">
-            </a>
-        </footer>
-    </body>
+    <div class="footer" th:include="Footer_Template.html :: Footer"></div>
+</body>
 
 </html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" <head>
+<title>Yellow Men</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="../css/Styles.css" rel="stylesheet">
+
+<body class="grid-container">
+
+    <div class="header" th:include="Header_Template.html :: header"></div>
+
+    <div class="pendiente">
+        <p>
+            En esta parte se va a agregar los productos disponibles en la tienda con sus imagenes de acuerdo a la BD,
+            al momento de seleccionar el producto se va redireccionar a una nueva pestaña con la talla,
+            la cantidad y una breve descripcion del producto. Ademas se le dara la opcion al usuario de adquirir el
+            producto seleccionado.
+        </p>
+    </div>
+
+    <div class="footer" th:include="Footer_Template.html :: Footer"></div>
+
+</body>
