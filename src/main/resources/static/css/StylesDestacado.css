@@ -8,7 +8,6 @@ body {
     background-image: url("../img/bg.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-
 }
 
 html {
@@ -52,6 +51,27 @@ html {
     margin: 0 10px;
 }
 
+.DivButtonAdmin {
+    position: absolute;
+    left: 2%;
+    top: 12%;
+    background-color: #ffffff;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+}
+
+.LinkAdminMode {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .links {
     color: #FFFFFF;
     text-decoration: none;
@@ -73,10 +93,17 @@ html {
     color: #001019;
 }
 
-.ParrafoIntroductorio{
+.ParrafoIntroductorio {
     font-size: small;
     padding-left: 10%;
     padding-right: 10%;
+}
+
+.pendiente {
+    font-size: 30px;
+    padding-left: 10%;
+    padding-right: 10%;
+    color: white;
 }
 
 .footer {

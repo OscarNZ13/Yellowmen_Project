@@ -6,15 +6,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/destacado")
-public class DestacadoController {
+@RequestMapping("/adminMode")
+public class AdminController {
 
-    public DestacadoController() {
+    public AdminController() {
     }
 
     @GetMapping()
-    public String Destacado(Model model) {
-        model.addAttribute("titulo", "Yellow Men");
-        return "Destacado";
+    public String AdminMController(Model model) {
+        return "AdminMode";
     }
+
 }
