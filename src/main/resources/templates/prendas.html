@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" <head>
+    <title>Yellow Men</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../css/StylesPrendas.css" rel="stylesheet">
+
+    <body class="grid-container">
+
+        <div class="header" th:include="Header_Template.html :: header"></div>
+
+        <div class="prendas">
+            <div class="prenda">
+                <input type="checkbox" id="prenda1">
+                <img src="static.img/Img_Camisa1.jpg" alt="Prenda 1">
+                <h3 class="nombre">Camisa de Chicago 🇺🇲 (Diferentes colores)</h3>
+                <p class="precio">Precio: 14 990 colones</p>
+                <p class="descripcion">Tallas: S a XXL<br>
+                    Envíos a todo el país</p>
+                <div class="informacion-adicional">
+                    <p>Información detallada sobre el producto.</p>
+                </div>
+            </div>
+
+            <div class="prenda">
+                <input type="checkbox" id="prenda2">
+                <img src="static.img/Img_Camisa2.jpg" alt="Prenda 2">
+                <h3 class="nombre">Camiseta de arte</h3><br>
+                <p class="precio">Precio: 13 990 colones</p>
+                <p class="descripcion">Tallas: S a XL<br>
+                    Envíos a todo el país</p>
+                <div class="informacion-adicional">
+                    <p>Información detallada sobre el producto.</p>
+                </div>
+            </div>
+
+            <div class="prenda">
+                <input type="checkbox" id="prenda">
+                <img src="static.img/Img_Hoodie1.jpg" alt="Prenda 3">
+                <h3 class="nombre">Hoodie Smiley Face</h3><br>
+                <p class="precio">Precio: 24 990 colones</p>
+                <p class="descripcion">Tallas: XS a XL<br>
+                    Envíos a todo el país</p>
+                <div class="informacion-adicional">
+                    <p>Información detallada sobre el producto.</p>
+                </div>
+            </div>
+
+            <div class="prenda">
+                <input type="checkbox" id="prenda2">
+                <img src="static.img/Img_Hoodie2.jpg" alt="Prenda 4">
+                <h3 class="nombre">Hoodie de arte</h3><br>
+                <p class="precio">Precio: 18 990 colones</p>
+                <p class="descripcion">Tallas: S a XXL<br>
+                    Envíos a todo el país</p>
+                <div class="informacion-adicional">
+                    <p>Información detallada sobre el producto.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer" th:include="Footer_Template.html :: Footer"></div>
+    </body>
