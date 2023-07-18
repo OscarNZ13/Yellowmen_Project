@@ -14,7 +14,7 @@ html {
     height: 100%;
 }
 
-.grid-container>* {
+.grid-container {
     box-shadow: -1px 1px 5px 0px rgb(0, 0, 0);
     border-radius: 5px;
     text-align: center;
@@ -23,6 +23,7 @@ html {
 .header {
     grid-area: header;
     text-align: center;
+    border-radius: 15px;
     background-color: #EAFF01;
     color: #001019;
 }
@@ -54,7 +55,7 @@ html {
 .DivButtonAdmin {
     position: absolute;
     left: 2%;
-    top: 8%;
+    top: 10%;
     background-color: #ffffff;
     width: 60px;
     height: 60px;

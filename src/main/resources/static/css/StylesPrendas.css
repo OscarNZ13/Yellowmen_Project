@@ -1,149 +1,27 @@
-html{
-    color: white;
-}
-.header {
-    grid-area: header;
-    text-align: center;
-    background-color: #EAFF01;
-    color: #001019;
-}
-
-.nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #2E1C66;
-    width: 400px;
-    height: 40px;
-    border-radius: 20px;
-    margin: 0 auto;
-}
-
-.nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.nav li {
-    margin: 0 10px;
-}
-
-.DivButtonAdmin {
-    position: absolute;
-    left: 2%;
-    top: 12%;
-    background-color: #ffffff;
-    width: 60px;
-    height: 60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* ------------------------------------------ Parte del apartado prendas ------------------------------------------ */
+.Box_Clothes {
+    background-color: #fbfaf5dc;
     border-radius: 50px;
-}
-
-.LinkAdminMode {
-    width: 40px;
-    height: 40px;
+    padding: 30px;
+    margin: 0 auto;
+    max-width: 800px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
 }
 
-.links {
-    color: #FFFFFF;
-    text-decoration: none;
-    padding: 5px 20px;
-    border-radius: 20px;
-    transition: background-color 0.3s ease;
+.Box_Clothes .box_each_Prenda {
+    width: 100%;
+    overflow: hidden;
 }
 
-.links:hover {
-    background-color: #001019;
+.Box_Clothes table {
+    width: 100%;
 }
 
-.section {
-    background-color: #fbfaf5dc;
-    border-radius: 30px;
-    height: 250px;
-    width: 500px;
-    margin: 85px auto;
-    color: #001019;
+.Box_Clothes th,
+.Box_Clothes td {
+    padding: 10px;
 }
 
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    min-height: 100%;
-    background-image: url("../img/bg.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.prendas {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.prenda {
-  color: white;
-  width: 300px;
-  margin: 10px;
-  padding: 10px;
-  border: 1px solid #ccc;
-}
-
-.prenda img {
-  width: 100%;
-  cursor: pointer;
-}
-
-.prenda h3 {
-  margin-top: 10px;
-}
-
-.prenda p {
-  margin: 5px 0;
-  color: white;
-}
-
-.informacion-adicional {
-  display: none;
-  margin-top: 10px;
-}
-
-input[type="checkbox"]:checked + .informacion-adicional {
-  display: block;
-}
-
-.footer {
-    background-color: #fbfaf5dc;
-    border-radius: 30px;
-    width: 200px;
-    height: 90px;
-    margin: 0 auto;
-    color: #001019;
-}
-
-.footer p {
-    margin-bottom: 10px;
-}
-
-.LinksRedes {
-    margin-top: -20px;
-    width: 30px;
-    height: 30px;
-}
-
-.grid-container {
-    display: grid;
-    gap: 10px;
-    grid-template-areas:
-        "header"
-        "section"
-        "footer";
-    grid-template-columns: auto;
-    grid-template-rows: 140px auto 100px;
-}
