@@ -15,10 +15,11 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">ID#</th>
+                        <th scope="col">ID</th>
                         <th scope="col">Prenda</th>
                         <th scope="col">Descripción</th>
                         <th scope="col">Precio</th>
+                        <th scope="col">Imagen</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -29,9 +30,11 @@
                         <td><span th:text="${prenda.nombre_prenda}"></span></td>
                         <td><span th:text="${prenda.descripcion}"></span></td>
                         <td><span th:text="${prenda.precio}"></span></td>
+
                         <td>
-                            <img alt="..." class="card-img-top" th:src="${prenda.ruta_imagen}">
+                            <img alt="..." class="ImagenPrenda" th:src="${prenda.ruta_imagen}">
                         </td>
+
                         </td>
                         <td>
                             <button class="btn btn-primary open-modal" data-bs-target="#productModal"
