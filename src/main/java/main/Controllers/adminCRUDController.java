@@ -12,12 +12,12 @@ import main.Entities.Clothes;
 import main.service.IClothesService;
 
 @Controller
-@RequestMapping("/test")
-public class CRUDController {
+@RequestMapping("/adminCRUD")
+public class adminCRUDController {
 
     private final IClothesService clothesService;
 
-    public CRUDController(IClothesService clothesService) {
+    public adminCRUDController(IClothesService clothesService) {
         this.clothesService = clothesService;
     }
 
@@ -27,6 +27,6 @@ public class CRUDController {
         var baseClothes = new Clothes();
         model.addAttribute("clothesDefault", baseClothes);
         model.addAttribute("clothes", this.clothesService.getProductsWithFilters(lowerPrice, higherPrice));
-        return "test";
+        return "adminCRUD";
     }
 }
