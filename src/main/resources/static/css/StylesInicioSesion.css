@@ -1,6 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&display=swap');
 *{
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 body{
     background-image: url("../img/bg.jpg");
@@ -27,7 +26,7 @@ body{
 
 
 header{
-    color: #E8E20D;
+    color: #ffffff;
     font-size: 30px;
     display: flex;
     justify-content: center;
@@ -41,7 +40,7 @@ header{
 
 .input{
     height: 45px;
-    width: 87%;
+    width: 100%;
     border: none;
     outline: none;
     border-radius: 30px;
