@@ -14,6 +14,38 @@
         <div class="container">
             <div class="top-header">
                 <header><Strong>Login</Strong></header>
+
+<html>
+    <head>
+        <title>Login</title>
+        <link href="css/StylesInicioSesion.css" rel = "stylesheet">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div class = "box">
+            <div class="container">
+                <div class = "top-header">
+                    <header><Strong>Login</Strong></header>
+                </div>
+                <form method="POST" th:action="@{/login}">
+                    <div class = "input-field">
+                        <input type = "text" class = "input" placeholder = "Username" required>
+                        <i class = "bx bx-user"></i>
+                    </div>
+                    <div class = "input-field">
+                        <input type = "password" class = "input" placeholder = "Password" required>
+                        <i class = "bx bx-lock-alt"></i>
+                    </div>
+                    <div class = "input-field">
+                        <button type = "Submit" class = "submit" value = "Login"> <strong>Ingresar</strong> </button>
+                    </div>
+                    <div class="DivMessageError" th:if="${param.error != null}">
+                        <h4 class="MessageError">Usuario o contraseña incorrectos</h4>
+                    </div>
+                </form>
+
             </div>
             <form method="POST" th:action="@{/login}">
                 <div class="form-group row my-3">
