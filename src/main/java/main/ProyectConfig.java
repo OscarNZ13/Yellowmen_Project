@@ -76,7 +76,7 @@ public class ProyectConfig implements WebMvcConfigurer {
                         "/destacado", "/prendas", "/users")
                 .permitAll()
 
-                .requestMatchers("/adminMode/**", "/api/**")
+                .requestMatchers("/adminMode/**", "/api/**", "/listaProductos/**", "/adminCRUD/**", "/users")
                 .hasRole("ADMIN"))
 
                 .formLogin((form) -> form.loginPage("/login")
