@@ -1,21 +1,4 @@
-<html th:attr="lang=${lang}" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
-    xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
-
-<head>
-    <title>Login</title>
-    <link href="css/StylesInicioSesion.css" rel="stylesheet">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-
-<body>
-    <div class="box">
-        <div class="container">
-            <div class="top-header">
-                <header><Strong>Login</Strong></header>
-
-<html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
     <head>
         <title>Login</title>
         <link href="css/StylesInicioSesion.css" rel = "stylesheet">
@@ -30,51 +13,27 @@
                     <header><Strong>Login</Strong></header>
                 </div>
                 <form method="POST" th:action="@{/login}">
-                    <div class = "input-field">
-                        <input type = "text" class = "input" placeholder = "Username" required>
-                        <i class = "bx bx-user"></i>
+                    <div class="form-group row my-3">
+                        <label class="col-md-5 my-auto" for="username"><i class="fas fa-user-lock"></i>[[#{perfil.usuario}]]</label>
+                        <div class="col-md-7 my-auto">
+                            <input class="form-control" id="username" name="username" type="text"/></div>
                     </div>
-                    <div class = "input-field">
-                        <input type = "password" class = "input" placeholder = "Password" required>
-                        <i class = "bx bx-lock-alt"></i>
+                    <div class="form-group row my-3">
+                        <label class="col-md-5 my-auto" for="password"><i class="fas fa-key"></i>[[#{perfil.contraseña}]]</label>
+                        <div class="col-md-7 my-auto"><input class="form-control" id="password" name="password" type="password"/></div>
                     </div>
-                    <div class = "input-field">
-                        <button type = "Submit" class = "submit" value = "Login"> <strong>Ingresar</strong> </button>
+                    <div>
+                        <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe">[[#{inises.record}]]</label>
                     </div>
-                    <div class="DivMessageError" th:if="${param.error != null}">
-                        <h4 class="MessageError">Usuario o contraseña incorrectos</h4>
+                    <div class="card-footer col text-center">
+                        <button class="btn btn-success" type="submit">
+                            <span class="btn"><i class="fas fa-sign-in-alt"></i>
+                                [[#{inises}]]</span></button>
                     </div>
                 </form>
-
             </div>
-            <form method="POST" th:action="@{/login}">
-                <div class="form-group row my-3">
-                    <label class="col-md-5 my-auto" for="username"><i
-                            class="fas fa-user-lock"></i>[[#{perfil.usuario}]]</label>
-                    <div class="col-md-7 my-auto">
-                        <input class="form-control" id="username" name="username" type="text" />
-                    </div>
-                </div>
-                <div class="form-group row my-3">
-                    <label class="col-md-5 my-auto" for="password"><i
-                            class="fas fa-key"></i>[[#{perfil.contraseña}]]</label>
-                    <div class="col-md-7 my-auto"><input class="form-control" id="password" name="password"
-                            type="password" /></div>
-                </div>
-                <div>
-                    <input type="checkbox" value="remember-me" id="rememberMe"
-                        name="rememberMe">[[#{inises.record}]]</label>
-                </div>
-                <div class="card-footer col text-center">
-                    <button class="btn btn-success" type="submit">
-                        <span class="btn"><i class="fas fa-sign-in-alt"></i>
-                            [[#{inises}]]</span></button>
-                </div>
-
-            </form>
         </div>
     </div>
-    </div>
 </body>
-
 </html>
+
