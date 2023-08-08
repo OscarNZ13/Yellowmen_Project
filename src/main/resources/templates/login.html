@@ -24,16 +24,10 @@
                     <div class = "input-field">
                         <button type = "Submit" class = "submit" value = "Login"> <strong>Ingresar</strong> </button>
                     </div>
-                    <div class = "bottom">
-                        <div class = "left">
-                            <input type = "checkbox" id = "check">
-                            <label for = "check"> Remember me </label>
-                        </div>
-                        <div class = "right">
-                            <label><a href="#">Forgot Password?</label>
-                        </div>
+                    <div class="DivMessageError" th:if="${param.error != null}">
+                        <h4 class="MessageError">Usuario o contraseña incorrectos</h4>
+                    </div>
                 </form>
-
             </div>
         </div>
     </div>
