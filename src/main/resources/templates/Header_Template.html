@@ -1,14 +1,23 @@
 <header class="header" th:fragment="header">
     <h1 th:text="${titulo}"></h1>
-    <nav class="nav">
-        <ul>
-            <li><a class="links" th:href="@{/}"><strong>Inicio</strong></a></li>
-            <li><a class="links" th:href="@{/destacado}"><strong>Destacado</strong></a></li>
-            <li><a class="links" th:href="@{/prendas}"><strong>Prendas</strong></a></li>
-        </ul>
-    </nav>
+    <div class="DIVnav">
+        <nav class="nav">
+            <ul>
+                <li><a class="links" th:href="@{/}"><strong>Inicio</strong></a></li>
+                <li><a class="links" th:href="@{/destacado}"><strong>Destacado</strong></a></li>
+                <li><a class="links" th:href="@{/prendas}"><strong>Prendas</strong></a></li>
+                <li><a sec:authorize="hasRole('ROLE_ADMIN')" class="links" th:href="@{/listaProductos}">
+                        <strong>Productos</strong></a>
+                </li>
+                <li><a sec:authorize="hasRole('ROLE_ADMIN')" class="links" th:href="@{/users}">
+                        <strong>Usuarios</strong></a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
     <div class="DivButtonAdmin">
-        <a th:href="@{/login}" target="_blank">
+        <a th:href="@{/login}">
             <img src="../img/AdminMode.png" alt="Admin" class="LinkAdminMode">
         </a>
     </div>

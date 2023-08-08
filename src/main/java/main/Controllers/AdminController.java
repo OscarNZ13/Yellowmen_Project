@@ -1,7 +1,6 @@
 package main.Controllers;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -13,7 +12,7 @@ public class AdminController {
     }
 
     @GetMapping()
-    public String AdminMController(Model model) {
+    public String index() {
         return "AdminMode";
     }
 

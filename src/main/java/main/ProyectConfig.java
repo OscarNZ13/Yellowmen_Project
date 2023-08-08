@@ -20,11 +20,11 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 
-@Configuration //Decorador or tag
+@Configuration // Decorador or tag
 public class ProyectConfig implements WebMvcConfigurer {
 
-    /* localeResolver se utiliza para crear una sesión de cambio de idioma*/
-    //Funciones que ejecuta springboot a la hora de configurarse
+    /* localeResolver se utiliza para crear una sesión de cambio de idioma */
+    // Funciones que ejecuta springboot a la hora de configurarse
     @Bean
     public LocaleResolver localeResolver() {
         var slr = new SessionLocaleResolver();
@@ -34,7 +34,10 @@ public class ProyectConfig implements WebMvcConfigurer {
         return slr;
     }
 
-    /* localeChangeInterceptor se utiliza para crear un interceptor de cambio de idioma*/
+    /*
+     * localeChangeInterceptor se utiliza para crear un interceptor de cambio de
+     * idioma
+     */
     @Bean
     public LocaleChangeInterceptor localeChangeInterceptor() {
         var lci = new LocaleChangeInterceptor();
@@ -61,26 +64,28 @@ public class ProyectConfig implements WebMvcConfigurer {
         registry.addViewController("/").setViewName("index");
         registry.addViewController("/index").setViewName("index");
         registry.addViewController("/login").setViewName("login");
-        registry.addViewController("/admin").setViewName("admin");
-        registry.addViewController("/product").setViewName("product");
+        registry.addViewController("/adminMode").setViewName("admin");
+        registry.addViewController("/prendas").setViewName("prendas");
+        registry.addViewController("/destacado").setViewName("destacado");
     }
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests((request) -> request
-                .requestMatchers("/", "/index", "/errores/**", "/js.views/**", "/css/**", "/img/**", "/index", "/destacado", "/prendas")
+                .requestMatchers("/", "/index", "/errores/**", "/js.views/**", "/css/**", "/img/**", "/index",
+                        "/destacado", "/prendas", "/users")
                 .permitAll()
-                
-                .requestMatchers("/listaProductos/**", "/api/**")
+
+                .requestMatchers("/adminMode/**", "/api/**")
                 .hasRole("ADMIN"))
-                
+
                 .formLogin((form) -> form.loginPage("/login")
-                .permitAll()
-                        
-                .defaultSuccessUrl("/", true))
+                        .permitAll()
+
+                        .defaultSuccessUrl("/", true))
                 .logout(LogoutConfigurer::permitAll)
-                
-                .csrf().disable().cors();//this line is important to allow ajax request from the js
+
+                .csrf().disable().cors();// this line is important to allow ajax request from the js
         return http.build();
     }
 
