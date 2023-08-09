@@ -15,6 +15,7 @@ public class UserController {
 
     @GetMapping("/users")
     public String index(Model model) {
+        model.addAttribute("titulo", "Yellow Men");
         var usuarios = usuarioService.getUsuarios();
         model.addAttribute("usuarios", usuarios);
         model.addAttribute("totalUsuarios", usuarios.size());
