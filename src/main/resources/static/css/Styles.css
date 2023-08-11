@@ -138,3 +138,12 @@ html {
     grid-template-columns: auto;
     grid-template-rows: 140px auto 100px;
 }
+
+#btnSearch{
+    background-color: #EAFF01;
+    color: #2E1C66;
+    text-decoration: none;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}

@@ -1,64 +1,76 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-    xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Yellow Men</title>
-    <link href="css/stylesCRUD.css" rel="stylesheet">
-    <link href="../css/StylesPrendas.css" rel="stylesheet">
-    <link href="../css/Styles.css" rel="stylesheet">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Yellow Men</title>
+        <link href="../css/StylesPrendas.css" rel="stylesheet">
+        <link href="../css/Styles.css" rel="stylesheet">
 
-</head>
+    </head>
 
-<body class="grid-container">
+    <body class="grid-container">
 
-    <div class="header" th:include="Header_Template.html :: header"></div>
+        <div class="header" th:include="Header_Template.html :: header"></div>
 
-    <!--Meten template aca -->
-    <div class=Box_Clothes>
-        <div class="box_each_Prenda">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Usuario</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Apellidos</th>
-                        <th scope="col">Correo</th>
-                        <th scope="col">Telefono</th>
-                        <th scope="col">Activo</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- This comes from the model that is in the ClothesController -->
-                    <tr th:each="user : ${usuarios}">
+        <!--Meten template aca -->
+        <div class=Box_Clothes>
+            <button class="btn btn-primary open-modal" data-bs-target="#productModal" data-bs-toggle="modal" type="button" style="border-radius: 10px">
+            Crear nuevo usuario
+        </button>
+            <div class="box_each_Usuarios">
+                <table class="table_U">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Usuario</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Apellidos</th>
+                            <th scope="col">Correo</th>
+                            <th scope="col">Telefono</th>
+                            <th scope="col">Activo</th>
+                            <th scope="col">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- This comes from the model that is in the ClothesController -->
+                        <tr th:each="user : ${usuarios}">
 
-                        <td><span th:text="${user.idUsuario}"></span></td>
-                        <td><span th:text="${user.username}"></span></td>
-                        <td><span th:text="${user.nombre}"></span></td>
-                        <td><span th:text="${user.apellidos}"></span></td>
-                        <td><span th:text="${user.correo}"></span></td>
-                        <td><span th:text="${user.telefono}"></span></td>
-                        <td><span th:text="${user.activo}"></span></td>
+                            <td><span th:text="${user.idUsuario}"></span></td>
+                            <td><span th:text="${user.username}"></span></td>
+                            <td><span th:text="${user.nombre}"></span></td>
+                            <td><span th:text="${user.apellidos}"></span></td>
+                            <td><span th:text="${user.correo}"></span></td>
+                            <td><span th:text="${user.telefono}"></span></td>
+                            <td><span th:text="${user.activo}"></span></td>
+                            <td>
+                                <button class="btn btn-primary open-modal" data-bs-target="#userModal"
+                                        data-bs-toggle="modal" th:attr="idUsuario=${user.idUsuario}" type="button" style="border-radius: 10px">
+                                    Editar
+                                </button>
+                                <button class="btn btn-danger open-modal btnDeleteEntity"
+                                        th:attr="idUser=${user.idUsuario}" type="button" style="border-radius: 10px">
+                                    Eliminar
+                                </button>
+                            </td>
+                        </tr>
 
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
+            </div>
         </div>
-    </div>
-    <!-- hasta aca -->
-
-    <script th:inline="javascript">
-        /*<![CDATA[*/
-        Usuarios = /*[[${Usuarios}]]*/ 'default';
-        usuariosDefault = /*[[${usuariosDefault}]]*/ 'default';
-    /*]]>*/
-    </script>
-    <script src="../js/views/user.js"></script>
-    <script src="../js/views/baseCRUD.js"></script>
-</body>
+        <!-- hasta aca -->
+        <script th:inline="javascript">
+            /*<![CDATA[*/
+            Usuarios = /*[[${Usuarios}]]*/ 'default';
+            usuariosDefault = /*[[${usuariosDefault}]]*/ 'default';
+            /*]]>*/
+        </script>
+        <script src="../js/views/user.js"></script>
+        <script src="../js/views/baseCRUD.js"></script>
+        <div th:insert="~{scripts.html :: scripts}"></div>
+    </body>
 
 </html>
