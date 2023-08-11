@@ -17,7 +17,38 @@
     <div class="header" th:include="Header_Template.html :: header"></div>
 
     <!--Meten template aca -->
+    <div class=Box_Clothes>
+        <div class="box_each_Prenda">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Usuario</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellidos</th>
+                        <th scope="col">Correo</th>
+                        <th scope="col">Telefono</th>
+                        <th scope="col">Activo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- This comes from the model that is in the ClothesController -->
+                    <tr th:each="user : ${usuarios}">
 
+                        <td><span th:text="${user.idUsuario}"></span></td>
+                        <td><span th:text="${user.username}"></span></td>
+                        <td><span th:text="${user.nombre}"></span></td>
+                        <td><span th:text="${user.apellidos}"></span></td>
+                        <td><span th:text="${user.correo}"></span></td>
+                        <td><span th:text="${user.telefono}"></span></td>
+                        <td><span th:text="${user.activo}"></span></td>
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
     <!-- hasta aca -->
 
     <script th:inline="javascript">
@@ -26,7 +57,7 @@
         usuariosDefault = /*[[${usuariosDefault}]]*/ 'default';
     /*]]>*/
     </script>
-    <script src="../js/views/clothes.js"></script>
+    <script src="../js/views/user.js"></script>
     <script src="../js/views/baseCRUD.js"></script>
 </body>
 
