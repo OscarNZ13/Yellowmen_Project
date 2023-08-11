@@ -1,53 +1,29 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-    xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Yellow Men</title>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Yellow Men</title>
+        <link href="css/stylesCRUD.css" rel="stylesheet" >
+        <link href="../css/StylesPrendas.css" rel="stylesheet">
+        <link href="../css/Styles.css" rel="stylesheet">
+    </head>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <body class="grid-container">
 
+        <div class="header" th:include="Header_Template.html :: header"></div>
 
-    <link href="css/stylesCRUD.css" rel="stylesheet" >
-    <link href="../css/StylesPrendas.css" rel="stylesheet">
-    <link href="../css/Styles.css" rel="stylesheet">
-
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-</head>
-
-<body class="grid-container">
-
-    <div class="header" th:include="Header_Template.html :: header"></div>
-    
-    <div class="container-xl">
-        <div class="table-responsive py-5">
-            <div class="table-wrapper">
-                <div class="table-title bg-dark">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <h2 class="text-warning"> <strong>Administracion de productos</strong></h2>
-                        </div>
-                        <div class="col-sm-6">
-                            <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i
-                                    class="material-icons">&#xE147;</i> <span>Agregar Producto</span></a>
-                        </div>
-                    </div>
-                </div>
-                <table class="table table-striped table-hover">
+        <div class=Box_Clothes>
+            <button class="btn btn-primary open-modal" data-bs-target="#productModal"
+                    data-bs-toggle="modal" type="button" style="border-radius: 10px">
+                Crear nuevo producto
+            </button>
+            <div class="box_each_Prenda">
+                <table class="table">
                     <thead>
                         <tr>
-                            <th>
-                                <span class="custom-checkbox">
-                                    <input type="checkbox" id="selectAll">
-                                    <label for="selectAll"></label>
-                                </span>
-                            </th>
-
                             <th scope="col">ID</th>
                             <th scope="col">Prenda</th>
                             <th scope="col">Descripción</th>
@@ -56,13 +32,8 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <!-- This comes from the model that is in the ClothesController -->
                         <tr th:each="prenda : ${clothes}">
-                            <td>
-                                <span class="custom-checkbox">
-                                    <input type="checkbox" id="checkbox1" name="options[]" value="1">
-                                    <label for="checkbox1"></label>
-                                </span>
-                            </td>
 
                             <td><span th:text="${prenda.id}"></span></td>
                             <td><span th:text="${prenda.nombre_prenda}"></span></td>
@@ -70,144 +41,84 @@
                             <td><span th:text="${prenda.precio}"></span></td>
 
                             <td>
-                                <img alt="..." class="ImagenPrendaCRUD" th:src="${prenda.ruta_imagen}">
+                                <img alt="..." class="ImagenPrenda" th:src="${prenda.ruta_imagen}">
                             </td>
                             <td>
-                                <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons"
-                                        data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-                                <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i
-                                        class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                                <button class="btn btn-primary open-modal" data-bs-target="#productModal" data-bs-toggle="modal"
+                                        th:attr="idProduct=${prenda.id}" type="button" style="border-radius: 10px">
+                                    edit
+                                </button>
+                                <button class="btn btn-danger open-modal btnDeleteEntity" th:attr="idProduct=${prenda.id}"
+                                        type="button" style="border-radius: 10px">
+                                    delete
+                                </button>
                             </td>
                         </tr>
-
                     </tbody>
                 </table>
-
             </div>
         </div>
-    </div>
-    <!-- Agregar Modal HTML -->
-    <div id="addEmployeeModal" class="modal fade">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <form>
+        <!-- this is the modal-->
+        <div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="productModal" role="dialog"
+             tabindex="-1">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="modal-title">Agregar Prenda</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h5 class="modal-title" id="exampleModalLabel">Producto</h5>
+                        <button aria-label="Close" class="close" data-bs-dismiss="modal" type="button">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
                     <div class="modal-body">
-                        <div class="form-group">
-                            <label>ID</label>
-                            <input type="text" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Nombre</label>
-                            <input type="text" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Descripcion</label>
-                            <textarea class="form-control" required></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label>Ruta de Imagen</label>
-                            <input type="text" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Precio</label>
-                            <input type="text" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Destacado</label>
-                            <span class="custom-checkbox mx-3">
-                                <input type="checkbox" id="destacado">
-                                <label for="destacado"></label>
-                            </span>
-                        </div>
+                        <form action="#" id="formProduct" method="post">
+                            <div class="form-group d-none">
+                                <label for="id">Id</label>
+                                <input class="form-control" id="id" placeholder="id"
+                                       type="number">
+                            </div>
+                            <div class="form-group">
+                                <label for="descripcion">Descripcion</label>
+                                <input class="form-control" id="descripcion" placeholder="descripcion"
+                                       type="text">
+                            </div>
+                            <div class="form-group">
+                                <label for="detalle">Detalle</label>
+                                <input class="form-control" id="detalle" placeholder="Detalle"
+                                       type="text">
+                            </div>
+                            <div class="form-group">
+                                <label for="precio">Precio</label>
+                                <input class="form-control" id="precio" placeholder="Precio"
+                                       type="number">
+                            </div>
+                            <div class="form-group">
+                                <label for="existencias">Existencias</label>
+                                <input class="form-control" id="existencias" placeholder="Excistencias"
+                                       type="number">
+                            </div>
+                            <div class="form-group">
+                                <label for="ruta_imagen">URL Imagen</label>
+                                <input class="form-control" id="ruta_imagen" placeholder="URL Imagen"
+                                       type="text">
+                            </div>
+                        </form>
                     </div>
                     <div class="modal-footer">
-                        <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar">
-                        <input type="submit" class="btn btn-success" value="Agregar">
+                        <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Close</button>
+                        <button class="btn btn-primary" data-bs-dismiss="modal" id="saveEntity" type="button">Save changes
+                        </button>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
-    </div>
-    <!-- Edit Modal HTML -->
-    <div id="editEmployeeModal" class="modal fade">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <form>
-                    <div class="modal-header">
-                        <h4 class="modal-title">Editar Prenda</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="modal-body">
-                            <div class="form-group">
-                                <label>ID</label>
-                                <input type="text" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Nombre</label>
-                                <input type="text" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Descripcion</label>
-                                <textarea class="form-control" required></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label>Ruta de Imagen</label>
-                                <input type="text" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Precio</label>
-                                <input type="text" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Destacado</label>
-                                <span class="custom-checkbox mx-3">
-                                    <input type="checkbox" id="destacadoEditar">
-                                    <label for="destacadoEditar"></label>
-                                </span> <!-- Tal vez sea necesario cambiar el tipo -->
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-                            <input type="submit" class="btn btn-info" value="Save">
-                        </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    <!-- Delete Modal HTML -->
-    <div id="deleteEmployeeModal" class="modal fade">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <form>
-                    <div class="modal-header">
-                        <h4 class="modal-title">Borrar Prenda</h4>
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    </div>
-                    <div class="modal-body">
-                        <p>¿Esta seguro que quiere borrar esta prenda?</p>
-                        <p class="text-warning"><small>Esta accion no es reversible</small></p>
-                    </div>
-                    <div class="modal-footer">
-                        <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancelar">
-                        <input type="submit" class="btn btn-danger" value="Borrar">
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-    <script th:inline="javascript">
-        /*<![CDATA[*/
-        clothes = /*[[${clothes}]]*/ 'default';
-        clothesDefault = /*[[${clothesDefault}]]*/ 'default';
-    /*]]>*/
-    </script>
-    <script src="../js/views/clothes.js"></script>
-    <script src="../js/views/baseCRUD.js"></script>
-</body>
+        <script th:inline="javascript">
+            /*<![CDATA[*/
+            clothes = /*[[${clothes}]]*/ 'default';
+            clothesDefault = /*[[${clothesDefault}]]*/ 'default';
+            /*]]>*/
+        </script>
+        <script src="../js/views/clothes.js"></script>
+        <script src="../js/views/baseCRUD.js"></script>
+    </body>
 
 </html>
