@@ -1,6 +1,6 @@
 //CREATE AND UPDATE
 const serviceEntity = "prendas";
-const idNameToUse = "id_prendas";
+const idNameToUse = "idprendas";
 let listOfEntities = clothes;
 let defaultEntity = prendaDefault;
 

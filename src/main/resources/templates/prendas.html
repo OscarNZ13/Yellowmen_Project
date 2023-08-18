@@ -1,72 +1,76 @@
-
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" <head>
-    <title>Yellow Men</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../css/StylesPrendas.css" rel="stylesheet">
-    <link href="../css/Styles.css" rel="stylesheet">
+<title>Yellow Men</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="../css/StylesPrendas.css" rel="stylesheet">
+<link href="../css/Styles.css" rel="stylesheet">
 
-    <body class="grid-container">
+<body class="grid-container">
 
 
-        <div class="header" th:include="Header_Template.html :: header"></div>
+    <div class="header" th:include="Header_Template.html :: header"></div>
 
-        <div class=Box_Clothes>
-            <form>
-                <label><strong>Filtro</strong></label>
-                <div class="form-group">
-                    <label for="inputLowerPrice">Desde</label>
-                    <input aria-describedby="lowerPrice" class="form-control" id="inputLowerPrice"
-                           placeholder="$"
-                           type="number" style="border-radius: 10px">
-                </div>
-                <div class="form-group">
-                    <label for="inputHigherPrice">Hasta</label>
-                    <input aria-describedby="higherPrice" class="form-control" id="inputHigherPrice"
-                           placeholder="$"
-                           type="number" style="border-radius: 10px">
-                </div>
-                <br>
-                <a class="btn btn-primary" href="#" id="btnSearch"><strong>Buscar</strong> </a>
-            </form>
-            <div class="box_each_Prenda">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">ID</th>
-                            <th scope="col">Prenda</th>
-                            <th scope="col">Descripción</th>
-                            <th scope="col">Precio</th>
-                            <th scope="col">Imagen</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- This comes from the model that is in the ClothesController -->
-                        <tr th:each="prenda : ${clothes}">
-
-                            <td><span th:text="${prenda.id}"></span></td>
-                            <td><span th:text="${prenda.nombre_prenda}"></span></td>
-                            <td><span th:text="${prenda.descripcion}"></span></td>
-                            <td><span th:text="${prenda.precio}"></span></td>
-
-                            <td>
-                                <img alt="..." class="ImagenPrenda" th:src="${prenda.ruta_imagen}">
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+    <div class=Box_Clothes>
+        <form>
+            <label><strong>Filtrar</strong></label>
+            <div class="form-group">
+                <label for="inputLowerPrice"><strong>Desde</strong></label>
+                <input aria-describedby="lowerPrice" class="form-control" id="inputLowerPrice" placeholder="$"
+                    type="number"
+                    style="border-radius: 10px; border-color: #ffffff; background-color: #001019; color: #ffffff;">
             </div>
+            <div class="form-group">
+                <label for="inputHigherPrice"><strong>Hasta</strong></label>
+                <input aria-describedby="higherPrice" class="form-control" id="inputHigherPrice" placeholder="$"
+                    type="number"
+                    style="border-radius: 10px; border-color: #ffffff; background-color: #001019; color: #ffffff;">
+            </div>
+            <br>
+            <a class="btn btn-primary" href="#" id="btnSearch"
+                style="background-color: #EAFF01; border-color: #ffffff; padding: 5px 8px; color: #001019; border-radius: 10px;"><b>Buscar</b></a>
+        </form>
+        <div class="box_each_Prenda">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Prenda</th>
+                        <th scope="col">Descripción</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Imagen</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- This comes from the model that is in the ClothesController -->
+                    <tr th:each="prenda : ${clothes}">
+
+                        <td><span th:text="${prenda.id}"></span></td>
+                        <td><span th:text="${prenda.nombre_prenda}"></span></td>
+                        <td><span th:text="${prenda.descripcion}"></span></td>
+                        <td><span th:text="${prenda.precio}"></span></td>
+
+                        <td>
+                            <img alt="..." class="ImagenPrenda" th:src="${prenda.ruta_imagen}">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-        <div class="footer" th:include="Footer_Template.html :: Footer"></div>
-    </body>
+    </div>
+    
+    <div class="footer" th:include="Footer_Template.html :: Footer"></div>
+
 
     <script th:inline="javascript">
         /*<![CDATA[*/
         clothes = /*[[${clothes}]]*/ 'default';
-        prendaDefault = /*[[${clothesDefault}]]*/ 'default';
+        prendaDefault = /*[[${prendaDefault}]]*/ 'default';
         /*]]>*/
     </script>
     <div th:insert="~{scripts.html :: scripts}"></div>
     <script src="../js/views/prendas.js"></script>
     <script src="../js/views/baseCRUD.js"></script>
+</body>
+
+</html>
