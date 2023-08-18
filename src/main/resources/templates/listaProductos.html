@@ -1,119 +1,117 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+    xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
 
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>Yellow Men</title>
-        <link href="css/stylesCRUD.css" rel="stylesheet" >
-        <link href="../css/StylesPrendas.css" rel="stylesheet">
-        <link href="../css/Styles.css" rel="stylesheet">
-    </head>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Yellow Men</title>
+    <link href="css/stylesCRUD.css" rel="stylesheet">
+    <link href="../css/StylesPrendas.css" rel="stylesheet">
+    <link href="../css/Styles.css" rel="stylesheet">
+</head>
 
-    <body class="grid-container">
+<body class="grid-container">
 
-        <div class="header" th:include="Header_Template.html :: header"></div>
+    <div class="header" th:include="Header_Template.html :: header"></div>
 
-        <div class=Box_Clothes>
-            <button class="btn btn-primary open-modal" data-bs-target="#productModal"
-                    data-bs-toggle="modal" type="button" style="border-radius: 10px">
-                Crear nuevo producto
-            </button>
-            <div class="box_each_Prenda">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">ID</th>
-                            <th scope="col">Prenda</th>
-                            <th scope="col">Descripción</th>
-                            <th scope="col">Precio</th>
-                            <th scope="col">Imagen</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- This comes from the model that is in the ClothesController -->
-                        <tr th:each="prenda : ${clothes}">
+    <div class=Box_Clothes>
+        <button class="btn btn-primary open-modal" data-bs-target="#productModal" data-bs-toggle="modal" type="button"
+            style="background-color: #05F215; border-color: #ffffff; padding: 10px 10px; color: #001019; border-radius: 10px;">
+            <b>Crear nuevo producto</b>
+        </button>
+        <div class="box_each_Prenda">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Prenda</th>
+                        <th scope="col">Descripción</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Imagen</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- This comes from the model that is in the ClothesController -->
+                    <tr th:each="prenda : ${clothes}">
 
-                            <td><span th:text="${prenda.id}"></span></td>
-                            <td><span th:text="${prenda.nombre_prenda}"></span></td>
-                            <td><span th:text="${prenda.descripcion}"></span></td>
-                            <td><span th:text="${prenda.precio}"></span></td>
+                        <td><span th:text="${prenda.id}"></span></td>
+                        <td><span th:text="${prenda.nombre_prenda}"></span></td>
+                        <td><span th:text="${prenda.descripcion}"></span></td>
+                        <td><span th:text="${prenda.precio}"></span></td>
 
-                            <td>
-                                <img alt="..." class="ImagenPrenda" th:src="${prenda.ruta_imagen}">
-                            </td>
-                            <td>
-                                <button class="btn btn-primary open-modal" data-bs-target="#productModal" data-bs-toggle="modal"
-                                        th:attr="idProduct=${prenda.id}" type="button" style="border-radius: 10px">
-                                    edit
-                                </button>
-                                <button class="btn btn-danger open-modal btnDeleteEntity" th:attr="idProduct=${prenda.id}"
-                                        type="button" style="border-radius: 10px">
-                                    delete
-                                </button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+                        <td>
+                            <img alt="..." class="ImagenPrenda" th:src="${prenda.ruta_imagen}">
+                        </td>
+                        <td>
+                            <button class="btn btn-primary open-modal" data-bs-target="#ProductModal"
+                                data-bs-toggle="modal" th:attr="idProduct=${prenda.id}" type="button"
+                                style="background-color: #EAFF01; border-color: #ffffff; padding: 10px 10px; color: #001019; border-radius: 10px;">
+                                <b>Editar</b>
+                            </button>
+
+                            <button class="btn btn-danger open-modal btnDeleteEntity" th:attr="idProduct=${prenda.id}"
+                                type="button"
+                                style="background-color: #F20505; border-color: #ffffff; padding: 10px 10px; color: #001019; border-radius: 10px;">
+                                <b>Eliminar</b>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-        <!-- this is the modal-->
-        <div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="productModal" role="dialog"
-             tabindex="-1">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Producto</h5>
-                        <button aria-label="Close" class="close" data-bs-dismiss="modal" type="button">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form action="#" id="formProduct" method="post">
-                            <div class="form-group d-none">
-                                <label for="id">Id</label>
-                                <input class="form-control" id="id" placeholder="id"
-                                       type="number">
-                            </div>
-                            <div class="form-group">
-                                <label for="descripcion">Nombre</label>
-                                <input class="form-control" id="descripcion" placeholder="descripcion"
-                                       type="text">
-                            </div>
-                            <div class="form-group">
-                                <label for="detalle">Descipcion</label>
-                                <input class="form-control" id="detalle" placeholder="Detalle"
-                                       type="text">
-                            </div>
-                            <div class="form-group">
-                                <label for="precio">Precio</label>
-                                <input class="form-control" id="precio" placeholder="Precio"
-                                       type="number">
-                            </div>
-                            <div class="form-group">
-                                <label for="ruta_imagen">URL Imagen</label>
-                                <input class="form-control" id="ruta_imagen" placeholder="URL Imagen"
-                                       type="text">
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Close</button>
-                        <button class="btn btn-primary" data-bs-dismiss="modal" id="saveEntity" type="button">Save changes
-                        </button>
-                    </div>
+    </div>
+
+    <div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="ProductModal" role="dialog"
+        tabindex="-1">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Nombre</h5>
+                    <button aria-label="Close" class="close" data-bs-dismiss="modal" type="button">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="#" id="formCliente" method="post">
+                        <div class="form-group d-none">
+                            <label for="id">Id</label>
+                            <input class="form-control" id="id" placeholder="id" type="number">
+                        </div>
+                        <div class="form-group">
+                            <label for="nombre">Descripcion</label>
+                            <input class="form-control" id="nombre" type="text">
+                        </div>
+                        <div class="form-group">
+                            <label for="descripcion">Precio</label>
+                            <input class="form-control" id="Descripcion" type="text">
+                        </div>
+                        <div class="form-group">
+                            <label for="ruta_imagen">Ruta De Imagen</label>
+                            <input class="form-control" id="ruta_imagen" type="text">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-bs-dismiss="modal" type="button"
+                        style=" background-color: #F20505; border-color:#ffffff; color: #001019; padding: 6px 6px; color: #001019; border-radius: 10px;"><b>Atrás</b></button>
+                    <button class="btn btn-primary" data-bs-dismiss="modal" id="saveEntity" type="button"
+                        style="background-color: #05F215; border-color:#ffffff; color: #001019; padding: 6px 6px; color: #001019; border-radius: 10px;"><b>Guardar</b>
+                    </button>
                 </div>
             </div>
         </div>
-        <script th:inline="javascript">
-            /*<![CDATA[*/
-            clothes = /*[[${clothes}]]*/ 'default';
-            clothesDefault = /*[[${clothesDefault}]]*/ 'default';
+    </div>
+
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        clothes = /*[[${clothes}]]*/ 'default';
+        clothesDefault = /*[[${clothesDefault}]]*/ 'default';
             /*]]>*/
-        </script>
-        <script src="../js/views/clothes.js"></script>
-        <script src="../js/views/baseCRUD.js"></script>
-    </body>
+    </script>
+    <script src="../js/views/clothes.js"></script>
+    <script src="../js/views/baseCRUD.js"></script>
+    <div th:insert="~{scripts.html :: scripts}"></div>
+</body>
 
 </html>
