@@ -1,6 +1,7 @@
 
 package main.Controllers;
 
+import main.Entities.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +17,8 @@ public class UserController {
     @GetMapping("/users")
     public String index(Model model) {
         model.addAttribute("titulo", "Yellow Men");
+        model.addAttribute("usuariosDefault", new Usuario());
+        model.addAttribute("usuarios", this.usuarioService.getUsuarios());
         var usuarios = usuarioService.getUsuarios();
         model.addAttribute("usuarios", usuarios);
         model.addAttribute("totalUsuarios", usuarios.size());
