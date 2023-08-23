@@ -25,7 +25,9 @@ public class Rol implements Serializable {
 
     @Column(name = "id_usuario")
     private Long idUsuario;
-
+    
+    //geters y setters del rol de los usuarios
+    
     public Long getIdRol() {
         return idRol;
     }

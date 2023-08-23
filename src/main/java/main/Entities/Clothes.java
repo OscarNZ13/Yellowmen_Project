@@ -15,7 +15,9 @@ public class Clothes {
     private String ruta_imagen;
     private int precio;
     private int esDestacado;
-
+    
+    //Getters y setters de las prendas
+    
     public String getId() {
         return id;
     }

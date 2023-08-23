@@ -16,16 +16,18 @@ import main.service.IClothesService;
 public class adminCRUDController {
 
     private final IClothesService clothesService;
-
+    
+    //Creacion del constructor
     public adminCRUDController(IClothesService clothesService) {
         this.clothesService = clothesService;
     }
 
-    @GetMapping()
+    @GetMapping()//Mapeo del crud
     public String CRUDController(Model model, @RequestParam("lowerPrice") Optional<Integer> lowerPrice, @RequestParam("higherPrice") Optional<Integer> higherPrice) {
         model.addAttribute("titulo", "Yellow Men");
         var baseClothes = new Clothes();
         model.addAttribute("clothesDefault", baseClothes);
+        //Se filtran los productos segun lo que el usuario haga
         model.addAttribute("clothes", this.clothesService.getProductsWithFilters(lowerPrice, higherPrice));
         return "adminCRUD";
     }

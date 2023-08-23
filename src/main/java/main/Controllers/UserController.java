@@ -14,14 +14,14 @@ public class UserController {
     @Autowired
     private UsuarioService usuarioService;
 
-    @GetMapping("/users")
+    @GetMapping("/users")//Mapeo de los usuarios
     public String index(Model model) {
         model.addAttribute("titulo", "Yellow Men");
         model.addAttribute("usuariosDefault", new Usuario());
-        model.addAttribute("usuarios", this.usuarioService.getUsuarios());
+        model.addAttribute("usuarios", this.usuarioService.getUsuarios());//Se llaman a los usuarios para darles un atributo
         var usuarios = usuarioService.getUsuarios();
         model.addAttribute("usuarios", usuarios);
-        model.addAttribute("totalUsuarios", usuarios.size());
+        model.addAttribute("totalUsuarios", usuarios.size());//Es para conocer la cantidad de usuarios que estan registrados
         return "users";
     }
 }

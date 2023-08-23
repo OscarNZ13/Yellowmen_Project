@@ -33,7 +33,9 @@ public class Usuario implements Serializable {
     @OneToMany
     @JoinColumn(name="id_usuario")
     private List<Rol> roles;
-
+    
+    //getters y setters del usuario
+    
     public Long getIdUsuario() {
         return idUsuario;
     }

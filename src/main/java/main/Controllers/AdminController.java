@@ -11,7 +11,7 @@ public class AdminController {
     public AdminController() {
     }
 
-    @GetMapping()
+    @GetMapping()// Mapeo del modo Admin
     public String index() {
         return "AdminMode";
     }
