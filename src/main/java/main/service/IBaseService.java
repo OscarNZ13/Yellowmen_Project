@@ -3,11 +3,13 @@ package main.service;
 import java.util.List;
 import java.util.Optional;
 
-public interface IBaseService<T, Y> {
 
-    List<T> getAll();
+//Esta interfaz tiene que ser implementada en todos los service del proyecto
+public interface IBaseService<T, Y> {//Clase con parametros T e Y
 
-    T save(T item);
+    List<T> getAll();//Se utiliza una lista con la variable T(definida en parametros) para que mustre todos los resultados
+
+    T save(T item);//Guarda un registro
 
     void delete(T item);
 
