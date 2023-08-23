@@ -1,8 +1,8 @@
 //CREATE AND UPDATE
-const serviceEntity = "prendas";
-const idNameToUse = "idprendas";
+const serviceEntity = "prenda";
+const idNameToUse = "idPrenda";
 let listOfEntities = clothes;
-let defaultEntity = prendaDefault;
+let defaultEntity = clothesDefault;
 
 $(document).on("click", "#btnSearch", function () {
     const currentUrl = document.location.href;
