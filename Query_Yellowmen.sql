@@ -10,6 +10,40 @@ create table Prendas(
     es_destacado boolean DEFAULT false
 );
 
+#Roles y Usuarios. Tal vez sea necesario modificar o eliminar
+CREATE TABLE YellowMen.usuario (
+  id_usuario INT NOT NULL AUTO_INCREMENT,
+  username varchar(20) NOT NULL,
+  password varchar(200) NOT NULL,
+  nombre VARCHAR(20) NOT NULL,
+  apellidos VARCHAR(30) NOT NULL,
+  correo VARCHAR(25) NULL,
+  telefono VARCHAR(15) NULL,
+  activo boolean,
+  PRIMARY KEY (`id_usuario`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4;
+
+create table YellowMen.rol (
+  id_rol INT NOT NULL AUTO_INCREMENT,
+  nombre varchar(20),
+  id_usuario int,
+  PRIMARY KEY (id_rol),
+  foreign key fk_rol_usuario (id_usuario) references usuario(id_usuario)
+)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4;
+
+insert into YellowMen.rol (id_rol, nombre, id_usuario) values
+ (1,'ROLE_ADMIN',1), (2,'ROLE_VENDEDOR',1), (3,'ROLE_USER',1),
+ (4,'ROLE_VENDEDOR',2), (5,'ROLE_USER',2),
+ (6,'ROLE_USER',3);
+ 
+INSERT INTO YellowMen.usuario (id_usuario, username,password,nombre, apellidos, correo, telefono,activo) VALUES 
+(1,'Oscar','$2a$10$P1.w58XvnaYQUQgZUCk4aO/RTRl8EValluCqB3S2VMLTbRt.tlre.','oscar', 'Naranjo Zuniga',    'kokarjr13@gmail.com',    '84567885',true),
+(2,'Jose','$2a$10$GkEj.ZzmQa/aEfDmtLIh3udIH5fMphx/35d0EYeqZL5uzgCJ0lQRi','Rebeca',  'Contreras Mora', 'acontreras@gmail.com', '5456-8789',true),
+(3,'Rehnam','$2a$10$koGR7eS22Pv5KdaVJKDcge04ZB53iMiw76.UjHPY.XyVYlYqXnPbO','Pedro', 'Mena Loria',     'lmena@gmail.com',      '7898-8936',true);
+
 insert into YellowMen.Prendas(id_prenda, nombre_prenda, descripcion, ruta_imagen, precio, es_destacado) 
 values (16406498,'Manfinity Hypemode Men Japanese Letter & Floral Print','Size & Fit: S to XXL','https://img.ltwebstatic.com/images3_pi/2022/05/23/1653271661ef037ca7fa3ebc4d3347e5d34cf040a2_thumbnail_600x.jpg', 16990, false),
 		(14500964,'Manfinity Hypemode Men Color-block Playing Card Print','Size & Fit: S to XXL','https://img.ltwebstatic.com/images3_pi/2022/06/21/1655800159a95dc48aca9e1bc4b1ffb0a93371d1d8_thumbnail_600x.jpg', 18990, true),
