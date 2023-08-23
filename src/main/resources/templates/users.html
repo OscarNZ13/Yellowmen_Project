@@ -8,132 +8,134 @@
     <title>Yellow Men</title>
     <link href="../css/StylesPrendas.css" rel="stylesheet">
     <link href="../css/Styles.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
 
 </head>
 
 <body class="grid-container">
-    
-    <div class="header" th:include="Header_Template.html :: header"></div>
-<section>
-    <!--Meten template aca -->
-    <div class=Box_Clothes>
-        <button class="btn btn-primary open-modal" data-bs-target="#productModal"
-                    data-bs-toggle="modal" type="button">
-                Create new product
-            </button>
-        <div class="box_each_Usuarios">
-            <table class="table_U">
-                <thead>
-                    <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Usuario</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Apellidos</th>
-                        <th scope="col">Correo</th>
-                        <th scope="col">Telefono</th>
-                        <th scope="col">Activo</th>
-                        <th scope="col">Acciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- This comes from the model that is in the ClothesController -->
-                    <tr th:each="user : ${usuarios}">
 
-                        <td><span th:text="${user.idUsuario}"></span></td>
-                        <td><span th:text="${user.username}"></span></td>
-                        <td><span th:text="${user.nombre}"></span></td>
-                        <td><span th:text="${user.apellidos}"></span></td>
-                        <td><span th:text="${user.correo}"></span></td>
-                        <td><span th:text="${user.telefono}"></span></td>
-                        <td><span th:text="${user.activo}"></span></td>
-                        <td>
-                            <button class="btn btn-primary open-modal" data-bs-target="#productModal" data-bs-toggle="modal"
-                                th:attr="idUsuario=${user.idUsuario}" type="button">
-                            edit
-                        </button>
-                        <button class="btn btn-danger open-modal btnDeleteEntity" th:attr="idUsuario=${user.idUsuario}"
-                                type="button">
-                            delete
-                        </button>
-                            
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+    <div class="header" th:include="Header_Template.html :: header"></div>
+    <section>
+        <!--Meten template aca -->
+        <div class=Box_Clothes>
+            <button class="btn btn-primary open-modal" data-bs-target="#productModal" data-bs-toggle="modal"
+                type="button"
+                style="background-color: #05F215; border-color: #ffffff; padding: 10px 10px; color: #001019; border-radius: 10px;">
+                <b>Crear nuevo usuario</b>
+            </button>
+            <div class="box_each_Usuarios">
+                <table class="table_U">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Usuario</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Apellidos</th>
+                            <th scope="col">Correo</th>
+                            <th scope="col">Telefono</th>
+                            <th scope="col">Activo</th>
+                            <th scope="col">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- This comes from the model that is in the ClothesController -->
+                        <tr th:each="user : ${usuarios}">
+
+                            <td><span th:text="${user.idUsuario}"></span></td>
+                            <td><span th:text="${user.username}"></span></td>
+                            <td><span th:text="${user.nombre}"></span></td>
+                            <td><span th:text="${user.apellidos}"></span></td>
+                            <td><span th:text="${user.correo}"></span></td>
+                            <td><span th:text="${user.telefono}"></span></td>
+                            <td><span th:text="${user.activo}"></span></td>
+                            <td>
+                                <button class="btn btn-primary open-modal" data-bs-target="#productModal"
+                                    data-bs-toggle="modal" th:attr="idUsuario=${user.idUsuario}" type="button"
+                                    style="background-color: #EAFF01; border-color: #ffffff; padding: 10px 10px; color: #001019; border-radius: 10px;">
+                                    <b>Editar</b>
+                                </button>
+                                <button class="btn btn-danger open-modal btnDeleteEntity"
+                                    th:attr="idUsuario=${user.idUsuario}" type="button"
+                                    style="background-color: #F20505; border-color: #ffffff; padding: 10px 10px; color: #001019; border-radius: 10px;">
+                                    <b>Eliminar</b>
+                                </button>
+
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-    </div>
 
 
         <div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="productModal" role="dialog"
-         tabindex="-1">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Producto</h5>
-                    <button aria-label="Close" class="close" data-bs-dismiss="modal" type="button">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form action="#" id="formProduct" method="post">
-                        <div class="form-group d-none">
-                            <label for="id">Id</label>
-                            <input class="form-control" id="id" placeholder="id"
-                                   type="number">
-                        </div>
-                        <div class="form-group">
-                            <label for="descripcion">Usuario</label>
-                            <input class="form-control" id="descripcion" placeholder="Usuario"
-                                   type="text">
-                        </div>
-                        <div class="form-group">
-                            <label for="detalle">Nombre</label>
-                            <input class="form-control" id="detalle" placeholder="Nombre"
-                                   type="text">
-                        </div>
-                        <div class="form-group">
-                            <label for="precio">Apellidos</label>
-                            <input class="form-control" id="precio" placeholder="Apellidos"
-                                   type="text">
-                        </div>
-                        <div class="form-group">
-                            <label for="existencias">Correo</label>
-                            <input class="form-control" id="existencias" placeholder="Correo"
-                                   type="text">
-                        </div>
-                        <div class="form-group">
-                            <label for="ruta_imagen">Telefono</label>
-                            <input class="form-control" id="ruta_imagen" placeholder="Telefono"
-                                   type="text">
-                        </div>
-                        <div class="form-group">
-                            <label for="ruta_imagen">Activo</label>
-                            <input class="form-control" id="ruta_imagen" placeholder="Activo"
-                                   type="text">
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Close</button>
-                    <button class="btn btn-primary" data-bs-dismiss="modal" id="saveEntity" type="button">Save changes
-                    </button>
+            tabindex="-1">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Usuario</h5>
+                        <button aria-label="Close" class="close" data-bs-dismiss="modal" type="button">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="#" id="formProduct" method="post">
+                            <div class="form-group d-none">
+                                <label for="id">Id</label>
+                                <input class="form-control" id="id" placeholder="id" type="number">
+                            </div>
+                            <div class="form-group">
+                                <label for="descripcion">Usuario</label>
+                                <input class="form-control" id="usuario" placeholder="Usuario" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label for="detalle">Nombre</label>
+                                <input class="form-control" id="nombre" placeholder="Nombre" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label for="precio">Apellidos</label>
+                                <input class="form-control" id="apellidos" placeholder="Apellidos" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label for="existencias">Correo</label>
+                                <input class="form-control" id="correo" placeholder="Correo" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label for="ruta_imagen">Telefono</label>
+                                <input class="form-control" id="telefono" placeholder="Telefono" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label for="ruta_imagen">Activo</label>
+                                <input class="form-control" id="activo" placeholder="Activo" type="text">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" data-bs-dismiss="modal" type="button"
+                            style="background-color: #F20505; border-color: #ffffff; padding: 10px 10px; color: #001019; border-radius: 10px;"><b>Atrás</b></button>
+                        <button class="btn btn-primary" data-bs-dismiss="modal" id="saveEntity" type="button"
+                            style="background-color: #05F215; border-color: #ffffff; padding: 10px 10px; color: #001019; border-radius: 10px;"><b>Guardar</b>
+                        </button>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-        <!-- hasta aca -->
-        <script th:inline="javascript">
-            /*<![CDATA[*/
-            Usuarios = /*[[${usuarios}]]*/ 'default';
-            usuariosDefault = /*[[${usuariosDefault}]]*/ 'default';
+    </section>
+    <!-- hasta aca -->
+    <script th:inline="javascript">
+        /*<![CDATA[*/
+        Usuarios = /*[[${usuarios}]]*/ 'default';
+        usuariosDefault = /*[[${usuariosDefault}]]*/ 'default';
             /*]]>*/
-        </script>
-        <script src="../js/views/user.js"></script>
-        <script src="../js/views/baseCRUD.js"></script>
-        <div th:insert="~{scripts.html :: scripts}"></div>
+    </script>
+    <script src="../js/views/user.js"></script>
+    <script src="../js/views/baseCRUD.js"></script>
+    <div th:insert="~{scripts.html :: scripts}"></div>
 </body>
 
 </html>
